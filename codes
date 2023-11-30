@@ -1,0 +1,174 @@
+#first code
+def calculate_surface_area(a, b, c):
+    surface_area = 2 * a * b + 2 * b * c + 2 * c * a
+    return surface_area
+
+# Taking input for side lengths
+a = int(input("Enter the length of side a: "))
+b = int(input("Enter the length of side b: "))
+c = int(input("Enter the length of side c: "))
+
+# Calculating surface area
+result = calculate_surface_area(a, b, c)
+
+# Displaying the surface area
+print("Surface Area of the prism:", result)
+
+#second code
+c = float(input("Enter the temp in centigrade:")
+f = 9/5*c+32
+print (c ,"centigrade is" ,f ,"fahrenheit")
+
+#third code
+def print_half_pyramid(rows):
+    for i in range(1, rows + 1):
+        for j in range(1, i + 1):
+            print(j, end="")
+        print()
+num_rows = 5
+print_half_pyramid(num_rows)
+
+rows = int(input("enter number of rows:"))
+for i in range(rows,0,-1):
+    for j in range(1,i+1):
+        print(j, end=" ")
+    print()
+
+rows=int(input("Enter the number of rows:"))
+for i in range(1, rows+1):
+    for j in range(1, i+1):
+        if j == 1 or j == i or i == rows:
+            print(j, end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+
+#fourth code
+# Task 1: Convert milliseconds to hours, minutes, and seconds
+def convert_ms(milliseconds):
+    seconds = milliseconds // 1000
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    return hours, minutes, seconds
+
+# Task 2: Compute sales commission
+def calculate_commission(sales_amount, commission_rate):
+    commission = sales_amount * commission_rate
+    return commission
+
+# Task 3: Convert Celsius to Fahrenheit
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+# Task 4: Compute monthly payment for a loan
+def compute_monthly_payment(loan_amount, num_of_years, annual_interest_rate):
+    monthly_interest_rate = annual_interest_rate / 12 / 100
+    num_of_payments = num_of_years * 12
+    monthly_payment = (loan_amount * monthly_interest_rate) / (1 - (1 + monthly_interest_rate) ** -num_of_payments)
+    return monthly_payment
+
+# Testing the functions
+milliseconds = 10000
+hours, minutes, seconds = convert_ms(milliseconds)
+print(f"Milliseconds: {milliseconds} -> Hours: {hours}, Minutes: {minutes}, Seconds: {seconds}")
+
+sales_amount = 5000
+commission_rate = 0.05
+commission = calculate_commission(sales_amount, commission_rate)
+print(f"Sales Amount: ${sales_amount} -> Commission: ${commission}")
+
+celsius_temp = 30
+fahrenheit_temp = celsius_to_fahrenheit(celsius_temp)
+print(f"Celsius: {celsius_temp} -> Fahrenheit: {fahrenheit_temp}")
+
+loan_amount = 100000
+num_of_years = 5
+annual_interest_rate = 4.5
+monthly_payment = compute_monthly_payment(loan_amount, num_of_years, annual_interest_rate)
+print(f"Loan Amount: ${loan_amount}, Years: {num_of_years}, Annual Interest Rate: {annual_interest_rate}% -> Monthly Payment: ${monthly_payment:.2f}")
+
+#fifth code
+def rotate_word(word, shift):
+    rotated_word = ""
+    for letter in word:
+        if letter.isalpha():
+            ascii_offset = ord('a') if letter.islower() else ord('A')
+            rotated_letter = chr((ord(letter) - ascii_offset + shift) % 26 + ascii_offset)
+            rotated_word += rotated_letter
+        else:
+            rotated_word += letter
+    return rotated_word
+
+#sixth code
+max_number = int(input("Enter a number (1-100): "))
+
+if 1 <= max_number <= 100:
+    result_list = [i for i in range(1, max_number + 1) if i % 5 == 0 or i % 6 == 0]
+    print("Numbers divisible by 5 or 6:", result_list)
+else:
+    print("Invalid input. Please enter a number between 1 and 100.")
+
+#seventh code
+slicing
+
+#eigth code
+def count_occurrences(string, char):
+    return string.count(char)
+
+# Taking user input for string and character
+user_string = input("Enter a string: ")
+user_character = input("Enter a character to count: ")
+
+result = count_occurrences(user_string, user_character)
+print(f"Number of occurrences of '{user_character}' in the string: {result}")
+
+#ninth code
+# Dictionary of friends' names and phone numbers
+friends = {
+    "Alice": "123-456-7890",
+    "Bob": "987-654-3210",
+    "Charlie": "456-789-0123"
+}
+
+# Printing the sorted dictionary
+sorted_friends = dict(sorted(friends.items()))
+print("Sorted Friends List:")
+for name, number in sorted_friends.items():
+    print(f"{name}: {number}")
+
+# Prompting the user for a name
+search_name = input("Enter a name to check: ")
+
+# Checking if the name is present in the dictionary
+if search_name in friends:
+    print(f"{search_name} is in the list with phone number: {friends[search_name]}")
+else:
+    new_number = input(f"Enter phone number for {search_name}: ")
+    friends[search_name] = new_number
+    print(f"{search_name} and their number {new_number} added to the list.")
+
+#tenth code
+# Dictionary of usernames and passwords
+user_passwords = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3",
+    "user4": "password4",
+    "user5": "password5"
+}
+
+# Displaying the original dictionary
+print("Original Dictionary:")
+print(user_passwords)
+
+# Using the clear() method to empty the dictionary
+user_passwords.clear()
+print("\nDictionary after using clear():")
+print(user_passwords)
+
+# Using fromkeys() method to create a new dictionary with default passwords
+usernames = ["John", "Emma", "Alice", "Bob", "Charlie"]
+default_password = "default123"
+new_user_passwords = dict.fromkeys(usernames, default_password)
+print("\nNew Dictionary created using fromkeys():")
+print(new_user_passwords)
