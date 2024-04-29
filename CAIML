@@ -1,0 +1,703 @@
+___first code a
+
+#include <stdio.h>
+#include <math.h>
+int main() {
+    double a,b,c,discriminant,root1,root2,realPart,imagPart;
+    printf("Enter coefficients a,b,c:");
+    scanf("%lf %lf %lf", &a, &b, &c);
+    discriminant=b*b-4*a*c;
+    if (discriminant > 0) {
+    // Real and distinct roots
+    root1 = (-b + sqrt(discriminant)) / (2 * a);
+    root2 = (-b - sqrt(discriminant)) / (2 * a);
+    printf("The roots are real and different.\n");
+    printf("root1 = %.2lf and root2 = %.2lf", root1, root2);
+} else if (discriminant == 0) {
+    // Real and equal roots
+    root1 = root2 = -b / (2 * a);
+    printf("The roots are real and equal.\n");
+    printf("root1 = root2 = %.2lf;", root1);
+} else {
+    // Complex roots
+    realPart = -b / (2 * a);
+    imagPart = sqrt(-discriminant) / (2 * a);
+    printf("The roots are complex and different.\n");
+    printf("root1 = %.2lf+%.2lfi and root2 = %.2f-%.2fi", realPart, imagPart, realPart, imagPart);
+}
+return 0;
+
+}
+
+___first code b
+#include <stdio.h>
+int main() {
+    char c;
+    printf("Enter an uppercase letter: ");
+    scanf("%c", &c);
+
+    if (c >= 'A' && c <= 'Z') {
+        c = c + 32;
+        printf("The lowercase letter is %c.", c);
+    } else {
+        printf("The entered character is not an uppercase letter.");
+    }
+
+    return 0;
+}
+
+____second code
+#include <stdio.h>
+
+int main() {
+    int ch, i, flag = 0;
+    
+    printf("1. Prime/Composite\n2. Odd/Even\n");
+    scanf("%d", &ch);
+
+    switch (ch) {
+        case 1: // Logic to find prime or not
+            printf("Enter a positive integer: ");
+            scanf("%d", &ch);
+            
+            // 0 and 1 are not prime numbers
+            // Change flag to 1 for non-prime numbers
+            if (ch == 0 || ch == 1)
+                flag = 1;
+
+            for (i = 2; i <= ch / 2; ++i) {
+                // If ch is divisible by i, then it's not prime
+                // Change flag to 1 for non-prime numbers
+                if (ch % i == 0) {
+                    flag = 1;
+                    break;
+                }
+            }
+
+            // Flag is 0 for prime numbers
+            if (flag == 0)
+                printf("%d is a prime number.\n", ch);
+            else
+                printf("%d is not a prime number.\n", ch);
+            break;
+
+        case 2: // Logic to find even/odd
+            printf("Enter the number: ");
+            scanf("%d", &ch);
+
+            // Check if ch is even or odd
+            if (ch % 2 == 0) {
+                printf("The number is even.\n");
+            } else {
+                printf("The number is odd.\n");
+            }
+            break;
+
+        default:
+            printf("Wrong choice.\n");
+            break;
+    }
+
+    return 0;
+}
+
+___third code a
+#include <stdio.h>
+int main()
+{
+	int i,n;
+	
+	int t1=0,t2=1;
+	int nextterm=t1+t2;
+	
+	printf("Enter:");
+	scanf("%d", &n);
+	
+	printf("Fibonacci series : %d, %d,", t1, t2);
+	
+	for (i = 3; i<=n; ++i)
+	{
+		printf("%d,", nextterm);
+		t1 = t2;
+		t2= nextterm;
+		nextterm = t1 + t2;
+		
+	}
+	return 0;
+}
+
+___third code b
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	int n;
+	int choice;
+	float square_root ;
+	printf("Enter the number :");
+	scanf("%d",&n);
+	
+	printf("1.sqrt\n,2.pow\n,3.log");
+	scanf("%d", &choice);
+	switch (choice)
+	{
+		case 1:
+	        square_root=sqrt(n);
+	        printf("The square root of %d = %f ",n,square_root);
+	        break;
+	        
+	    case 2:
+	    	square_root=pow(n,0.5);
+			printf("The square root of %d  %f",n,square_root);
+			break;
+			
+		case 3:
+		     square_root=pow(2,0.5*log2(n));
+		     printf("The square root f %d = %f",n,square_root);
+		     break;
+		default:
+			printf("Better luck next time");
+			
+	}
+	return 0;
+	
+}
+
+
+____fourth code
+#include<stdio.h>
+int main()
+{
+  int matA[2][2],matB[2][2],matC[2][2],matD[2][2],matE[2][2],matF[2][2],i,j,k;
+  printf("Enter the numbers for matrix A. \n");
+  for(i=0;i<2;i++)
+  {
+    for(j=0;j<2;j++)
+    {
+      printf("The elements of row %d ,column %d :",i+1,j+1);
+      scanf("%d",&matA[i][j]);
+    }
+  }
+
+
+  printf("Enter the numbers for matrix B. \n");
+  for(i=0;i<2 ;i++)
+  {
+    for(j=0;j<2;j++)
+    {
+      printf("The elements of row %d ,column %d :",i+1,j+1);
+      scanf("%d",&matB[i][j]);
+    }
+  }
+
+  printf("The matrix A is : \n");
+  for(i=0;i<2;i++)
+  {
+    for(j=0;j<2;j++)
+    {
+      printf("%d ", matA[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("The matrix B is : \n");
+  for(i=0;i<2;i++)
+  {
+    for(j=0;j<2;j++)
+    {
+      printf("%d ", matB[i][j]);
+    }
+    printf("\n");
+  }
+
+  //For Addition OF matrixA and matrixB
+  printf("Addition of matA and matB  \n");
+
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          matC[i][j]=matA[i][j] + matB[i][j];
+      }
+  }
+
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          printf("%d ", matC[i][j]);
+      }
+      printf("\n");
+  }
+
+  //For Subtraction Of matrixA and matrixB
+  printf("Substraction of matA and matB \n");
+
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          matD[i][j]=matA[i][j] - matB[i][j];
+      }
+  }
+
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          printf("%d ", matD[i][j]);
+      }
+      printf("\n");
+  }
+
+  //For Transpose Of matrixA
+  printf("Transpose of matA \n");
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          matE[j][i]=matA[i][j];
+      }
+  }
+    for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          printf("%d ", matE[i][j]);
+      }
+      printf("\n");
+  }
+
+  //For Multiply Of matrixA and matrixB
+  printf("Multiplication of matA and matB \n");
+  for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+ matF[i][j]=0;
+          for(k=0;k<2;k++)
+          {
+              matF[i][j] += matA[i][k] * matB[k][j];
+          }
+      }
+  }
+    for(i=0;i<2;i++)
+  {
+      for(j=0;j<2;j++)
+      {
+          printf("%d ", matF[i][j]);
+      }
+      printf("\n");
+  }
+  return 0;
+}
+
+____fifth code
+LENGTH OF STRING 
+#include <stdio.h>
+int main() {
+    char str[] = "HELLO";
+    int i;
+
+    for (i = 0; str[i] != '\0'; ++i);
+
+    printf("Length of the string: %d", i);
+    return 0;
+}
+COMPARE STRING
+#include<stdio.h>
+int main ()
+{
+    char str3[10]= "Hi",str1[10]="hello";
+    int result = strcmp(str1,str3);
+    printf("For strcmp(str1,str2), the result is %d\n",result);
+    if(result==0)
+    {
+       printf("The strings are equal.");
+    }
+    else
+    {
+       printf("The strings are not equal.\n");
+    }
+    return 0;
+}	
+COPY STRING
+#include <stdio.h>
+int main() {
+    char s1[100], s2[100], i;
+    printf("Enter string 1: ");
+    fgets(s1, sizeof(s1), stdin);
+
+    for (i = 0; s1[i] != '\0'; ++i) {
+        s2[i] = s1[i];
+    }
+
+    s2[i] = '\0';
+    printf("String 2: %s", s2);
+    return 0;
+}
+CONCATENATE STRING
+#include <stdio.h>
+int main() {
+  char str1[100] = "HELLO ", str2[] = "WORLD";
+  int length, j;
+
+  length = 0;
+  while (str1[length] != '\0') {
+    ++length;
+  }
+
+  for (j = 0; str2[j] != '\0'; ++j, ++length) {
+    str1[length] = str2[j];
+  }
+
+  str1[length] = '\0';
+
+  printf("After concatenation: ");
+puts(str1);
+
+  return 0;
+}
+TOTAL VOWELS
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    // Initializing variable.
+    char str[100];
+    int i, vowels = 0;
+
+    // Accepting input.
+    printf("Enter the string: ");
+    // best way to read string rather than gets/fgets
+    scanf("%[^\n]s",&str);
+ //Initializing for loop.
+    for(i = 0; str[i]; i++)
+    {
+        //Counting the vowels.
+        if(str[i]=='a'|| str[i]=='e'||str[i]=='i'||
+           str[i]=='o'|| str[i]=='u'||str[i]=='A'||
+           str[i]=='E'||str[i]=='I'||str[i]=='O' ||str[i]=='U')
+        {
+            vowels++;
+        }
+    }
+
+    //Printing the count of vowels.
+    printf("Total number of vowels: = %d\n",vowels);
+
+    return 0;
+}
+TOTAL CHARACTERS
+# include<stdio.h>
+# include<string.h>
+int main()
+{
+  char string[100];
+  int count=0;
+  printf("Enter any sentence:");
+  scanf(" %[^\n]", string);
+
+  for(int i=0; i<strlen(string);i++)
+  {
+    if (string[i]!= ' ')
+    {
+       count++;
+    }
+  }
+   printf("The number of characters in the given sentence is: %d",count);
+}
+REVERSE STRING
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  char strinput[100];
+  int j;
+  printf("Enter a string:");
+  scanf("%s",strinput);
+  int len = strlen(strinput);
+  for (int i = 0, j = len - 1; i <= j; i++, j--)
+  {
+    char c = strinput[i];
+    strinput[i]=strinput[j];
+    strinput[j]=c;
+  }
+  printf("The reversed string will be %s \n",strinput);
+  return 0;
+}
+PALINDROME STRING
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+  char string1[20];
+  int i, length;
+  int flag = 0;
+
+  printf("Enter a string: ");
+  scanf("%s", string1);
+
+  length = strlen(string1);
+
+  for (i = 0; i < length / 2; i++)
+  {
+    if (string1[i] != string1[length - i - 1])
+     {
+       flag = 1;
+       break;
+     }
+  }
+
+  if (flag)
+  {
+    printf("%s is not a palindrome\n", string1);
+  }
+  else
+  {
+    printf("%s is a palindrome\n", string1);
+  }
+return 0;
+}
+SUBSTRING IN STRING
+#include <stdio.h>
+#include <string.h>
+char str[100], sub[100];
+int count = 0, count1 = 0;
+void main()
+{
+  int i, j, l, l1, l2;
+  printf("\nEnter a string : ");
+  scanf("%[^\n]s", str);
+  l1 = strlen(str);
+  printf("\nEnter a substring : ");
+  scanf(" %[^\n]s", sub);
+  l2 = strlen(sub);
+  for (i = 0; i < l1;)
+  {
+    j = 0;
+    count = 0;
+    while ((str[i] == sub[j]))
+    {
+      count++;
+      i++;
+      j++;
+    }
+    if (count == l2)
+    {
+      count1++;
+      count = 0;
+    }
+    else
+    i++;
+  }
+  printf("%s occurs %d times in %s", sub, count1, str);
+}
+
+
+
+____seventh code
+FACTORIAL
+#include<stdio.h>
+int fact(int n)
+{
+    if (n>=1)
+        return n*fact(n-1);
+    else
+        return 1;
+}
+
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printf("Factorial of %d = %ld", n, fact(n));
+    return 0;
+}
+SQUARE ROOT
+#include <stdio.h>
+double squareRoot(double num, double i) {
+    double new_num = (i + num / i) / 2;
+
+
+    if (i - new_num < 0.00001 && new_num - i < 0.00001)
+        return new_num;
+    return squareRoot(num, new_num);
+}
+
+int main() {
+    double num, i;
+    printf("Enter a number: ");
+    scanf("%lf", &num);
+    i = num / 2;
+    double result = squareRoot(num, i);
+    printf("Square root of %.2lf is %.5lf\n", num, result);
+
+    return 0;
+}
+
+
+___ eighth code:
+#include <stdio.h>
+void swap(int* arr, int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+void bubbleSort(int arr[], int n)
+{
+    int i, j;
+    for (i=0;i<n-1;i++)
+	{
+        for (j=0;j<n-i-1;j++)
+		{
+            if (arr[j]>arr[j+1])
+			{
+                swap(arr,j,j+1);
+            }
+        }
+    }
+}
+int main()
+{
+    int arr[] = {12,8,4,1,10};
+    int N = sizeof(arr)/sizeof(arr[0]);
+    int i;
+    bubbleSort(arr,N);
+    printf("Sorted array: ");
+    for (i=0;i<N;i++)
+	{
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+SELCTION SORT
+#include <stdio.h>   
+void swap(int* i, int* j) 
+{ 
+    int temp = *i; 
+    *i = *j; 
+    *j = temp; 
+} 
+  
+void selectionSort(int arr[], int n) 
+{ 
+    int i, j, min_idx; 
+    for (i = 0; i < n - 1; i++) { 
+        min_idx = i; 
+        for (j = i + 1; j < n; j++) 
+            if (arr[j] < arr[min_idx]) 
+                min_idx = j; 
+        swap(&arr[min_idx], &arr[i]); 
+    } 
+} 
+void printArray(int arr[], int size) 
+{ 
+    int i; 
+    for (i = 0; i < size; i++) 
+        printf("%d ", arr[i]); 
+    printf("\n"); 
+} 
+int main() 
+{ 
+    int arr[] = { 6,77,2,10,15}; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    selectionSort(arr, n); 
+    printf("Sorted array: \n"); 
+    printArray(arr, n); 
+    return 0; 
+}
+
+_____ninth code
+#include<stdio.h>
+void swap(int* p, int*q){ 
+int temp = *p; *p = *q;
+*q= temp; 
+}
+void bubblesort(int arr[],int n){ 
+int i, j;
+for (i=0;i<n-1;i++){ 
+for (j=i+1;j<n;j++){ if(arr[i]>arr[j]){ 
+} } 
+} 
+swap(&arr[i],&arr[j]); } 
+int BinarySearch(int arr[],int x,int low,int high ){ if(high>=low){ 
+int mid = (high + low)/2; if (arr[mid]==x) 
+return mid; if (arr[mid]>x) 
+return BinarySearch(arr,x,low,mid-1); if(arr[mid]<x) 
+return BinarySearch(arr,x,mid+1,high); 
+} 
+return -1; 
+}
+int main(){ 
+
+
+int arr[50], n,i,x;
+printf("Enter total number of elements: "); scanf("%d", &n);
+printf("Enter array elements:\n");
+for (i = 0; i < n; i++) { 
+printf("Enter element %d: ", i + 1); 
+scanf("%d", &arr[i]);} bubblesort(arr,n);
+printf("Array elements after sorting:\n"); for (i = 0; i < n; i++) { 
+printf("%d,", arr[i]); } 
+printf("\nEnter the element you would like to search: "); scanf("%d",&x); 
+int result= BinarySearch(arr,x,0,n-1); if (result == -1) 
+printf("\nNot found"); else 
+printf("\nElement is found at index %d",result); 
+}
+
+____tenth code:
+#include <stdio.h>
+
+struct Employee
+{
+    int id;
+    char name[50];
+    char designation[50];
+    char department[50];
+    int salary;
+} e[5];
+
+int main()
+{
+    int i;
+ printf("ENTER INFORMATION\n");
+
+    for (i = 0; i < 2; i++)
+    {
+        e[i].id = i + 1;
+        printf("Enter Id %d \n", e[i].id);
+        printf("Enter first name: \n");
+        scanf("%s", e[i].name);
+        printf("Enter designation: \n");
+        scanf("%s", e[i].designation);
+        printf("Enter department: \n");
+        scanf("%s", e[i].department);
+        printf("Enter basic salary: \n");
+        scanf("%d", &e[i].salary);
+    }
+
+ printf("DISPLAY INFORMATION \n");
+
+    for (i = 0; i < 2; i++)
+    {
+        printf("ID: %d\n", e[i].id);
+        printf("NAME: %s\n", e[i].name);
+        printf("DESIGNATION: %s\n", e[i].designation);
+        printf("DEPARTMENT: %s\n", e[i].department);
+        printf("BASIC SALARY: %d\n", e[i].salary);
+        printf("\n");
+    }
+
+    return 0;
+    
+}
+
