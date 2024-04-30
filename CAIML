@@ -537,6 +537,217 @@ int main() {
 
     return 0;
 }
+THIS IS ANOTHER STYLE FROM MENU
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function prototypes
+void lengthOfString();
+void compareStrings();
+void copyString();
+void concatenateStrings();
+void countVowels();
+void countCharacters();
+void reverseString();
+void checkPalindrome();
+void findSubstring();
+
+int main() {
+    int choice;
+
+    do {
+        // Display menu
+        printf("\nMenu:\n");
+        printf("1. Length of a string\n");
+        printf("2. Compare two strings\n");
+        printf("3. Copy a string\n");
+        printf("4. Concatenate two strings\n");
+        printf("5. Count total vowels in a string\n");
+        printf("6. Count total characters in a string\n");
+        printf("7. Reverse a string\n");
+        printf("8. Check if a string is palindrome\n");
+        printf("9. Find occurrences of a substring in a string\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        // Perform operation based on user choice
+        switch(choice) {
+            case 1:
+                lengthOfString();
+                break;
+            case 2:
+                compareStrings();
+                break;
+            case 3:
+                copyString();
+                break;
+            case 4:
+                concatenateStrings();
+                break;
+            case 5:
+                countVowels();
+                break;
+            case 6:
+                countCharacters();
+                break;
+            case 7:
+                reverseString();
+                break;
+            case 8:
+                checkPalindrome();
+                break;
+            case 9:
+                findSubstring();
+                break;
+            case 0:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Please enter a number between 0 and 9.\n");
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+
+// Function definitions
+
+void lengthOfString() {
+    char str[100];
+    printf("Enter the string: ");
+    scanf(" %[^\n]", str);
+    int length = 0;
+    while (str[length] != '\0') {
+        ++length;
+    }
+    printf("Length of the string: %d\n", length);
+}
+
+void compareStrings() {
+    char str1[10], str2[10];
+    printf("Enter string 1: ");
+    scanf("%s", str1);
+    printf("Enter string 2: ");
+    scanf("%s", str2);
+    int result = strcmp(str1, str2);
+    if (result == 0) {
+        printf("The strings are equal.\n");
+    } else {
+        printf("The strings are not equal.\n");
+    }
+}
+
+void copyString() {
+    char s1[100], s2[100];
+    printf("Enter string 1: ");
+    scanf(" %[^\n]", s1);
+    int i;
+    for (i = 0; s1[i] != '\0'; ++i) {
+        s2[i] = s1[i];
+    }
+    s2[i] = '\0';
+    printf("String 2: %s\n", s2);
+}
+
+void concatenateStrings() {
+    char str1[100], str2[100];
+    printf("Enter string 1: ");
+    scanf("%s", str1);
+    printf("Enter string 2: ");
+    scanf("%s", str2);
+    strcat(str1, str2);
+    printf("After concatenation: %s\n", str1);
+}
+
+void countVowels() {
+    char str[100];
+    int i, vowels = 0;
+    printf("Enter the string: ");
+    scanf(" %[^\n]", str);
+    for (i = 0; str[i]; i++) {
+        if (tolower(str[i]) == 'a' || tolower(str[i]) == 'e' || tolower(str[i]) == 'i' ||
+            tolower(str[i]) == 'o' || tolower(str[i]) == 'u') {
+            vowels++;
+        }
+    }
+    printf("Total number of vowels: %d\n", vowels);
+}
+
+void countCharacters() {
+    char string[100];
+    int count = 0;
+    printf("Enter any sentence: ");
+    scanf(" %[^\n]", string);
+    for(int i = 0; i < strlen(string); i++) {
+        if (string[i] != ' ') {
+            count++;
+        }
+    }
+    printf("The number of characters in the given sentence is: %d\n", count);
+}
+
+void reverseString() {
+    char strinput[100];
+    printf("Enter a string: ");
+    scanf("%s", strinput);
+    int len = strlen(strinput);
+    for (int i = 0, j = len - 1; i <= j; i++, j--) {
+        char c = strinput[i];
+        strinput[i] = strinput[j];
+        strinput[j] = c;
+    }
+    printf("The reversed string will be %s \n", strinput);
+}
+
+void checkPalindrome() {
+    char string1[20];
+    printf("Enter a string: ");
+    scanf("%s", string1);
+    int length = strlen(string1);
+    int flag = 0;
+    for (int i = 0; i < length / 2; i++) {
+        if (string1[i] != string1[length - i - 1]) {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag) {
+        printf("%s is not a palindrome\n", string1);
+    } else {
+        printf("%s is a palindrome\n", string1);
+    }
+}
+
+void findSubstring() {
+    char str[100], sub[100];
+    int count = 0;
+    printf("\nEnter a string : ");
+    scanf(" %[^\n]s", str);
+    printf("\nEnter a substring : ");
+    scanf(" %[^\n]s", sub);
+    int l1 = strlen(str);
+    int l2 = strlen(sub);
+    for (int i = 0; i < l1;) {
+        int j = 0;
+        count = 0;
+        while ((str[i] == sub[j]) && j < l2) {
+            count++;
+            i++;
+            j++;
+        }
+        if (count == l2) {
+            count++;
+            count = 0;
+        } else
+            i++;
+    }
+    printf("%s occurs %d times in %s\n", sub, count, str);
+}
+
+
+
 
 
 ___ eighth code:
